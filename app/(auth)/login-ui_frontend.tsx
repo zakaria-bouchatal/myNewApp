@@ -1,11 +1,25 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, ImageBackground , ColorValue , Image} from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import styled from "styled-components/native";
 import { Colors } from "../../constants/Colors";
 
 export default function LoginScreen() {
   return (
-    <Background source={require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png")}>
+    <Screen>
+      {/* Background image only in the top 40% */}
+      <BackgroundContainer>
+        <Background
+          source={require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png")}
+        />
+      </BackgroundContainer>
+
+      {/* Login form in the bottom 60% */}
       <Container>
         <Greeting>Welcome</Greeting>
 
@@ -13,46 +27,65 @@ export default function LoginScreen() {
         <Input placeholder="example@gmail.com" placeholderTextColor="#4CAF50" />
 
         <Label>Password</Label>
-        <Input secureTextEntry placeholder="************" placeholderTextColor="#A9A9A9" />
+        <Input
+          secureTextEntry
+          placeholder="************"
+          placeholderTextColor="#A9A9A9"
+        />
 
         <ForgotPassword>Forgot your Password ?</ForgotPassword>
 
         <LoginButton>
           <LoginText>Log-in</LoginText>
         </LoginButton>
-
         <SignUpContainer>
           <Text>Don’t have an account ? </Text>
           <SignUpText>Sign-Up.</SignUpText>
         </SignUpContainer>
       </Container>
-    </Background>
+    </Screen>
   );
 }
 
+const Screen = styled.View`
+  flex: 1;
+`;
+
+const BackgroundContainer = styled.View`
+  height: 30%;
+  width: 100%;
+`;
 
 const Background = styled.ImageBackground`
   flex: 1;
-  justify-content: center;
-  align-items: center;
-  object-fit: cover;
   width: 100%;
+  height: 100%;
+  resize-mode: cover;
 `;
 
 const Container = styled.View`
-  backgroundColor: ${Colors.light.background};
+  background-color: ${Colors.light.background};
   padding: 30px;
-  border-radius: 34px;
-  position: absolute;
-  bottom: 0;
-  height: 70%;
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+  height: 75%;
   width: 100%;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+
+  /* Adding shadow */
+  shadow-color: black;
+  shadow-offset: 0px -6px; /* Moves the shadow up */
+  shadow-opacity: 0.5; /* Light shadow effect */
+  shadow-radius: 6px;
+  elevation: 6; /* Works for Android */
 `;
 
 const Greeting = styled.Text`
-  font-size: 34px;
-  font-weight: bold;
+  font-size: 35px;
+  font-weight: 600; /* Slightly thinner than bold */
   color: ${Colors.light.primary};
   margin-bottom: 20px;
 `;
