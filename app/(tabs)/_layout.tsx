@@ -1,16 +1,12 @@
-import { Tabs } from 'expo-router'
-import React from 'react'
+import { Tabs } from "expo-router";
+import React from "react";
 
-function TabLayout() {
+export default function TabLayout() {
   return (
     <Tabs>
-      <Tabs.Screen name="Home" />
-      <Tabs.Screen name="Order" />
-      <Tabs.Screen name="Search" />
-      <Tabs.Screen name="Cart" />
-      <Tabs.Screen name="Profile" />
+      <Tabs.Screen name="index" options={{ title: "Home" }} />
+      <Tabs.Screen name="explore" options={{ title: "Explore" }} />
+      <Tabs.Screen name="profile" options={{ title: "Profile" }} />
     </Tabs>
-  )
+  );
 }
-
-export default TabLayout

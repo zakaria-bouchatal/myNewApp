@@ -1,50 +1,34 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
 import styled from "styled-components/native";
-import { Colors } from "../../constants/Colors";
+import { useRouter } from "expo-router";
+import { Colors } from "../../constants/Colors"; // Fixed import
 
 export default function LoginScreen() {
+  const router = useRouter();
+
   return (
     <Screen>
-      {/* Background image only in the top 40% */}
       <BackgroundContainer>
-        <Background
-          source={require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png")}
-        />
+        <Background source={require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png")} />
       </BackgroundContainer>
 
-      {/* Login form in the bottom 60% */}
       <Container>
         <Greeting>Welcome</Greeting>
-
         <Label>E-mail</Label>
-        <EmailInput
-          placeholder="example@gmail.com"
-          placeholderTextColor="white"
-        />
-
+        <EmailInput placeholder="example@gmail.com" placeholderTextColor="white" />
         <Label>Password</Label>
-        <Input
-          secureTextEntry
-          placeholder="************"
-          placeholderTextColor="white"
-        />
+        <Input secureTextEntry placeholder="************" placeholderTextColor="white" />
 
-        <ForgotPassword>Forgot your Password ?</ForgotPassword>
+        <ForgotPassword>Forgot your Password?</ForgotPassword>
 
-        <LoginButton>
+        <LoginButton onPress={() => router.replace("/(tabs)")}>
           <LoginText>Log-in</LoginText>
         </LoginButton>
 
         <SignUpContainer>
-          <Label>Don’t have an account ? </Label>
-          <SignUpText>Sign-Up.</SignUpText>
+          <Label>Don’t have an account?</Label>
+          <SignUpText onPress={() => router.push("/(auth)/signup")}>Sign-Up.</SignUpText>
         </SignUpContainer>
       </Container>
     </Screen>
@@ -89,16 +73,17 @@ const Container = styled.View`
 
 const Greeting = styled.Text`
   font-family: "Poppins";
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 600; /* Slightly thinner than bold */
   color: ${Colors.light.primary};
-  margin-bottom: 5%; /* Adjusted to percentage */
+  margin-bottom: 6%; /* Adjusted to percentage */
 `;
 
 const Label = styled.Text`
+
   align-self: flex-start;
   margin-bottom: 2%; /* Adjusted to percentage */
-  font-weight: 500px;
+  font-size: 11;
   color: white;
 `;
 
@@ -130,7 +115,7 @@ const ForgotPassword = styled.Text`
   color: #ff6600;
   align-self: flex-end;
   margin-bottom: 4%; /* Adjusted to percentage */
-  font-size: 12px; /* Adjusted for better readability */
+  font-size: 9px; /* Adjusted for better readability */
 `;
 
 const LoginButton = styled.TouchableOpacity`
@@ -160,7 +145,7 @@ const SignUpContainer = styled.View`
 
 const SignUpText = styled.Text`
   color: #ff6600;
-  font-weight: 300px;
-  margin-left: 5px; /* Add a small margin between the text */
-  margin-bottom: 2%;
+  font-size: 12;
+  margin-left: 10px; /* Add a small margin between the text */
+  margin-bottom: 3%;
 `;
