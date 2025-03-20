@@ -24,13 +24,16 @@ export default function LoginScreen() {
         <Greeting>Welcome</Greeting>
 
         <Label>E-mail</Label>
-        <Input placeholder="example@gmail.com" placeholderTextColor="#4CAF50" />
+        <EmailInput
+          placeholder="example@gmail.com"
+          placeholderTextColor="white"
+        />
 
         <Label>Password</Label>
         <Input
           secureTextEntry
           placeholder="************"
-          placeholderTextColor="#A9A9A9"
+          placeholderTextColor="white"
         />
 
         <ForgotPassword>Forgot your Password ?</ForgotPassword>
@@ -38,8 +41,9 @@ export default function LoginScreen() {
         <LoginButton>
           <LoginText>Log-in</LoginText>
         </LoginButton>
+
         <SignUpContainer>
-          <Text>Don’t have an account ? </Text>
+          <Label>Don’t have an account ? </Label>
           <SignUpText>Sign-Up.</SignUpText>
         </SignUpContainer>
       </Container>
@@ -65,7 +69,7 @@ const Background = styled.ImageBackground`
 
 const Container = styled.View`
   background-color: ${Colors.light.background};
-  padding: 30px;
+  padding: 8%; /* Adjusted to percentage for better responsiveness */
   border-top-left-radius: 34px;
   border-top-right-radius: 34px;
   height: 75%;
@@ -84,56 +88,79 @@ const Container = styled.View`
 `;
 
 const Greeting = styled.Text`
+  font-family: "Poppins";
   font-size: 35px;
   font-weight: 600; /* Slightly thinner than bold */
   color: ${Colors.light.primary};
-  margin-bottom: 20px;
+  margin-bottom: 5%; /* Adjusted to percentage */
 `;
 
 const Label = styled.Text`
   align-self: flex-start;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #2e8b57;
+  margin-bottom: 2%; /* Adjusted to percentage */
+  font-weight: 500px;
+  color: white;
 `;
 
+// Custom styled component for the email input
+const EmailInput = styled.TextInput`
+  width: 100%;
+  border: 2px solid white;
+  padding: 5%; /* Adjusted to percentage */
+  border-radius: 10px;
+  border-color: #24c245;
+  margin-bottom: 4%; /* Adjusted to percentage */
+  background-color: #214609; /* Custom background color for email input */
+  color: white; /* Text color */
+`;
+
+// Default styled component for other inputs
 const Input = styled.TextInput`
   width: 100%;
-  border: 2px solid #4caf50;
-  padding: 10px;
+  border: 2px solid white;
+  padding: 5%; /* Adjusted to percentage */
   border-radius: 10px;
-  margin-bottom: 15px;
-  background-color: #fff;
-  color: #000;
+  border-color: white;
+  margin-bottom: 4%; /* Adjusted to percentage */
+  background-color: ${Colors.light.background}; /* Default background color */
+  color: white; /* Text color */
 `;
 
 const ForgotPassword = styled.Text`
-  color: orange;
+  color: #ff6600;
   align-self: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 4%; /* Adjusted to percentage */
+  font-size: 12px; /* Adjusted for better readability */
 `;
 
 const LoginButton = styled.TouchableOpacity`
-  background-color: #4caf50;
+  background-color: #35750c;
   width: 100%;
-  padding: 15px;
+  padding: 4%; /* Adjusted to percentage */
   border-radius: 10px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-top: 15%;
 `;
 
 const LoginText = styled.Text`
+  font-family: "Poppins";
   color: white;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 100;
+  font-size: 16px; /* Adjusted for better readability */
 `;
 
 const SignUpContainer = styled.View`
+  width: 100%; /* Ensure it takes full width */
   flex-direction: row;
   align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  margin-top: 20%; /* Push the container to the bottom */
+  padding-bottom: 5%; /* Add padding at the bottom to prevent overlap */
 `;
 
 const SignUpText = styled.Text`
-  color: orange;
-  font-weight: bold;
+  color: #ff6600;
+  font-weight: 300px;
+  margin-left: 5px; /* Add a small margin between the text */
+  margin-bottom: 2%;
 `;
