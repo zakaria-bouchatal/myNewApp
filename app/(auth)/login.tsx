@@ -30,6 +30,7 @@ export default function LoginScreen() {
           <Label>Don’t have an account?</Label>
           <SignUpText onPress={() => router.push("/(auth)/signup")}>Sign-Up.</SignUpText>
         </SignUpContainer>
+        <GoBackText>Go Back</GoBackText>
       </Container>
     </Screen>
   );
@@ -52,8 +53,8 @@ const Background = styled.ImageBackground`
 `;
 
 const Container = styled.View`
-  background-color: ${Colors.light.background};
-  padding: 8%; /* Adjusted to percentage for better responsiveness */
+  background-color: ${Colors.light.background}; 
+  padding: 8%;
   border-top-left-radius: 34px;
   border-top-right-radius: 34px;
   height: 75%;
@@ -62,14 +63,8 @@ const Container = styled.View`
   position: absolute;
   bottom: 0;
   overflow: hidden;
-
-  /* Adding shadow */
-  shadow-color: black;
-  shadow-offset: 0px -6px; /* Moves the shadow up */
-  shadow-opacity: 0.5; /* Light shadow effect */
-  shadow-radius: 6px;
-  elevation: 6; /* Works for Android */
 `;
+
 
 const Greeting = styled.Text`
   font-family: "Poppins";
@@ -114,7 +109,6 @@ const Input = styled.TextInput`
 const ForgotPassword = styled.Text`
   color: #ff6600;
   align-self: flex-end;
-  margin-bottom: 4%; /* Adjusted to percentage */
   font-size: 9px; /* Adjusted for better readability */
 `;
 
@@ -140,7 +134,6 @@ const SignUpContainer = styled.View`
   align-items: center;
   justify-content: center; /* Center the content horizontally */
   margin-top: 20%; /* Push the container to the bottom */
-  padding-bottom: 5%; /* Add padding at the bottom to prevent overlap */
 `;
 
 const SignUpText = styled.Text`
@@ -149,3 +142,9 @@ const SignUpText = styled.Text`
   margin-left: 10px; /* Add a small margin between the text */
   margin-bottom: 3%;
 `;
+const GoBackText = styled.Text`
+  color: #ff6600;
+  font-size: 11;
+  align-self: flex-start;
+  margin-left: 42%; /* Add a margin between the text */
+`

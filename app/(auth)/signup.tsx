@@ -10,7 +10,6 @@ export default function SignupScreen() {
   return (
     <Screen>
       <Container>
-        <Greeting>Sign Up</Greeting>
         <Label>E-mail</Label>
         <EmailInput placeholder="example@gmail.com" placeholderTextColor="white" />
         <Label>Password</Label>
@@ -33,45 +32,17 @@ const Screen = styled.View`
   flex: 1;
 `;
 
-const BackgroundContainer = styled.View`
-  height: 30%;
-  width: 100%;
-`;
-
-const Background = styled.ImageBackground`
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  resize-mode: cover;
-`;
 
 const Container = styled.View`
-  background-color: ${Colors.light.background};
-  padding: 8%; /* Adjusted to percentage for better responsiveness */
-  border-top-left-radius: 34px;
-  border-top-right-radius: 34px;
-  height: 75%;
+  background-color: ${Colors.light.background}; 
+  height: 100%;
   width: 100%;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  bottom: ;
   overflow: hidden;
-
-  /* Adding shadow */
-  shadow-color: black;
-  shadow-offset: 0px -6px; /* Moves the shadow up */
-  shadow-opacity: 0.5; /* Light shadow effect */
-  shadow-radius: 6px;
-  elevation: 6; /* Works for Android */
 `;
 
-const Greeting = styled.Text`
-  font-family: "Poppins";
-  font-size: 30px;
-  font-weight: 600; /* Slightly thinner than bold */
-  color: ${Colors.light.primary};
-  margin-bottom: 6%; /* Adjusted to percentage */
-`;
 
 const Label = styled.Text`
  font-family: "Poppins";
