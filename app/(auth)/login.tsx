@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
 import styled from "styled-components/native";
 import { useRouter } from "expo-router";
-import { Colors } from "../../constants/Colors"; // Fixed import
+import { Colors } from "../../constants/Colors";
 
 export default function LoginScreen() {
   const router = useRouter();
