@@ -1,99 +1,115 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
+import { ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import styled from "styled-components/native";
 import { useRouter } from "expo-router";
-import { Colors } from "../../constants/Colors"; // Fixed import
+import { Colors } from "../../constants/Colors";
 
 export default function SignupScreen() {
   const router = useRouter();
 
   return (
     <Screen>
-      <Container>
-        <Label>E-mail</Label>
-        <EmailInput placeholder="example@gmail.com" placeholderTextColor="white" />
-        <Label>Password</Label>
-        <Input secureTextEntry placeholder="************" placeholderTextColor="white" />
+      <KeyboardAvoidingView 
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+      >
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
+          <Container>
+            <Label>Name</Label>
+            <NameInput placeholder="Enter your name" placeholderTextColor="white" />
+            
+            <Label>Last Name</Label> 
+            <Input placeholder="Enter your last name" placeholderTextColor="white" />
 
-        <SignupButton onPress={() => router.replace("/(tabs)")}>
-          <SignupText>Create Account</SignupText>
-        </SignupButton>
+            <Label>Email</Label> 
+            <Input placeholder="Enter your email" placeholderTextColor="white" keyboardType="email-address" />
 
-        <SignUpContainer>
-          <Label>Already have an account?</Label>
-          <SignUpText onPress={() => router.push("/(auth)/login")}>Login.</SignUpText>
-        </SignUpContainer>
-      </Container>
+            <Label>Phone Number</Label> 
+            <Input placeholder="Enter your phone number" placeholderTextColor="white" keyboardType="phone-pad" />
+            
+            <Label>Password</Label>
+            <Input secureTextEntry={true} placeholder="************" placeholderTextColor="white" />
+
+               <LittleContainer>
+              <LittleText>By continuing, you agree to </LittleText>
+             <TermsOfUse>Terms of Use</TermsOfUse>
+                  <LittleText> and </LittleText>
+               <PrivacyPolicy>Privacy Policy</PrivacyPolicy>
+              <LittleText>.</LittleText>
+               </LittleContainer>
+
+            <SignupButton onPress={() => router.replace("/(tabs)")}>
+              <SignupText>Sign Up</SignupText>
+            </SignupButton>
+
+            <SignUpContainer>
+              <Label>Already have an account?</Label>
+              <SignUpText onPress={() => router.push("/(auth)/login")}>Login.</SignUpText>
+            </SignUpContainer>
+          </Container>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </Screen>
   );
 }
 
 const Screen = styled.View`
   flex: 1;
+  background-color: ${Colors.light.background};
 `;
-
 
 const Container = styled.View`
-  background-color: ${Colors.light.background}; 
-  height: 100%;
   width: 100%;
   align-items: center;
-  position: absolute;
-  bottom: ;
-  overflow: hidden;
+  padding: 10%;
+  padding-top: 11%;
 `;
 
-
 const Label = styled.Text`
- font-family: "Poppins";
   align-self: flex-start;
-  margin-bottom: 2%; /* Adjusted to percentage */
-  font-weight: 400px;
+  margin-bottom: 2%;
+  font-size: 11px;
   color: white;
 `;
 
-// Custom styled component for the email input
-const EmailInput = styled.TextInput`
+const NameInput = styled.TextInput`
   width: 100%;
   border: 2px solid white;
-  padding: 5%; /* Adjusted to percentage */
+  padding: 5%;
   border-radius: 10px;
   border-color: #24c245;
-  margin-bottom: 4%; /* Adjusted to percentage */
-  background-color: #214609; /* Custom background color for email input */
-  color: white; /* Text color */
+  margin-bottom: 4%;
+  background-color: #214609;
+  color: white;
 `;
 
-// Default styled component for other inputs
 const Input = styled.TextInput`
   width: 100%;
   border: 2px solid white;
-  padding: 5%; /* Adjusted to percentage */
+  padding: 5%;
   border-radius: 10px;
   border-color: white;
-  margin-bottom: 4%; /* Adjusted to percentage */
-  background-color: ${Colors.light.background}; /* Default background color */
-  color: white; /* Text color */
+  margin-bottom: 4%;
+  background-color: ${Colors.light.background};
+  color: white;
 `;
 
-
-
-
 const SignUpContainer = styled.View`
-  width: 100%; /* Ensure it takes full width */
+  width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: center; /* Center the content horizontally */
-  margin-top: 20%; /* Push the container to the bottom */
-  padding-bottom: 5%; /* Add padding at the bottom to prevent overlap */
+  justify-content: center;
+  margin-top: 10%;
+  padding-bottom: 5%;
 `;
 
 const SignUpText = styled.Text`
   color: #ff6600;
-  font-weight: 300px;
-  margin-left: 5px; /* Add a small margin between the text */
+  font-weight: 300;
+  margin-left: 5px;
   margin-bottom: 2%;
 `;
+
 const SignupButton = styled.TouchableOpacity`
   background-color: #35750c;
   width: 100%;
@@ -104,8 +120,36 @@ const SignupButton = styled.TouchableOpacity`
 `;
 
 const SignupText = styled.Text`
-  font-family: "Poppins";
   color: white;
   font-weight: 100;
   font-size: 16px;
+`;
+
+const LittleContainer = styled.View`
+  margin-top: 5%;
+  align-items: center;
+  text-align: center;
+  padding: 2%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const LittleText = styled.Text`
+  color: white; 
+  font-size: 12px;
+`;
+
+const TermsOfUse = styled.Text`
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 12px;
+`;
+
+const PrivacyPolicy = styled.Text`
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 12px;
 `;
