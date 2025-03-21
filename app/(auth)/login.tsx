@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
 import styled from "styled-components/native";
 import { useRouter } from "expo-router";
-import { Colors } from "../../constants/Colors";
+import { Colors } from "../../constants/Colors"; // Fixed import
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -22,8 +22,8 @@ export default function LoginScreen() {
 
         <ForgotPassword>Forgot your Password?</ForgotPassword>
 
-        <LoginButton onPress={() => router.replace("/(tabs)")}>
-          <LoginText onPress={() => router.push("./(tabs)/home_page-ui")}>Log-in</LoginText>
+        <LoginButton onPress={() => router.replace("./(tabs)")}>
+          <LoginText>Log-in</LoginText>
         </LoginButton>
 
         <SignUpContainer>
