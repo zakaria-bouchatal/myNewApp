@@ -25,7 +25,20 @@ const orders = [
     status: "Ongoing",
     image: require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png"),
   },
-
+    {
+        id: "3",
+        title: "Smoked Jollof Rice with Chicken",
+        price: "$35",
+        status: "Completed",
+        image: require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png"),
+    },
+    {
+        id: "4",
+        title: "Smoked Jollof Rice with Chicken",
+        price: "$35",
+        status: "Ongoing",
+        image: require("../../assets/images/ebcbb960d5d992314b90ba13029e05b31.png"),
+    },
 ];
 
 const OrderCard: React.FC<{ order: Order }> = ({ order }) => (
@@ -89,15 +102,14 @@ const OrdersScreen = () => {
         renderScene={renderScene}
         onIndexChange={setIndex}
         renderTabBar={(props) => (
-            <TabBar
+            <TabBar style={styles.tabBar}
   {...props}
   indicatorStyle={{ backgroundColor: "green" }}
-  style={{ backgroundColor: "white" }}
   renderTabBarItem={({ route }) => {
     const isFocused = props.navigationState.index === props.navigationState.routes.findIndex(r => r.key === route.key);
   
     return (
-      <TouchableOpacity style={{ flex: 1, alignItems: "center", padding: 10 }}>
+      <TouchableOpacity style={styles.tabButtons}>
         <Text style={{ color: isFocused ? "green" : "black", fontWeight: "bold" }}>
           {route.title}
         </Text>
@@ -123,6 +135,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
   },
+  tabBar: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: 10,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 10,
+    paddingVertical: 8,
+  },     
+  tabButtons: {
+
+   },
   card: {
     flexDirection: "row",
     backgroundColor: "#fff",

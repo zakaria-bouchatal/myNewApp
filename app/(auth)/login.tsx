@@ -22,7 +22,7 @@ export default function LoginScreen() {
 
         <ForgotPassword>Forgot your Password?</ForgotPassword>
 
-        <LoginButton onPress={() => router.replace("./(tabs)")}>
+        <LoginButton onPress={() => router.replace("/(tabs)")}>
           <LoginText>Log-in</LoginText>
         </LoginButton>
 
