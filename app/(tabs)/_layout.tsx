@@ -5,6 +5,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import OrdersScreen from "./order_page-ui";
+import HomeScreen from "./home_page-ui";
+import CartScreen from "./cart_page-ui";
+import ProfileScreen from "./profile_page-ui";
+import SearchScreen from "./search_page-ui";
 
 
 const Tab = createBottomTabNavigator();
@@ -15,11 +19,12 @@ export default function TabLayout() {
             screenOptions={{
               tabBarShowLabel: false,
               tabBarStyle: styles.tabBar,
+              headerShown: false
             }}
           >
             <Tab.Screen
               name="Home"
-              component={OrdersScreen}
+              component={HomeScreen}
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <Ionicons name="home-outline" size={size} color={color} />

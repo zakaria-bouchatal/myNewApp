@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function Srearch_page() { 
+export default function SearchScreen() { 
     return <View><Text>Home</Text></View>; 
 }

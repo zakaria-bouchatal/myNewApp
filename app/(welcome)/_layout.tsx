@@ -7,13 +7,11 @@ export default function WelcomeLayout() {
       {/* Stack for managing navigation */}
       <Stack
         screenOptions={{
-          headerShown: false, // Hide the header for all screens
+          headerShown: false,
         }}
       >
         <Stack.Screen name="intro1" options={{ title: "" }} />
-        <Stack.Screen name="intro2" options={{ title: "" }} />
-        <Stack.Screen name="intro3" options={{ title: "" }} />
-        <Stack.Screen name="intro4" options={{ title: "" }} />
+
       </Stack>
     </Container>
   );
@@ -22,5 +20,5 @@ export default function WelcomeLayout() {
 // Styled components
 const Container = styled.View`
   flex: 1;
-  background-color: #eef9e6; // Add any background color or styles you want
+  background-color: #eef9e6;
 `;
